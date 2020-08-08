@@ -19,6 +19,8 @@ public class TesteRegrasCadastros {
     private WebDriver driver;
     private DSL dsl;
     private CampoTreinamentoPage page;
+
+    //necessario para ser passado como parametro em getCollection e para serem usados nas regras da deveValidarCadastro()
     @Parameterized.Parameter(value = 0)
     public String nome;
     @Parameterized.Parameter(value = 1)
@@ -50,9 +52,11 @@ public class TesteRegrasCadastros {
     public void finaliza(){
         driver.quit();
     }
-    @Parameterized.Parameters
+    @Parameterized.Parameters // esta tag faz com que seja captador dos parametros acima
+    // este metodo, faz todos os testes com base e regra no deveValidarCadastro() pois todos os parametros dados estão nesta classe
     public static Collection<Object[]> getCollection(){
         return Arrays.asList(new Object[][]{
+                //Cada um dos elementos abaixo, alimenta um teste de deveValidarCadastro()
             {"", "", "", Arrays.asList(), new String[]{}, "Nome eh obrigatorio"},
             {"Pablo", "", "", Arrays.asList(), new String[]{}, "Sobrenome eh obrigatorio"},
             {"Pablo", "Ferreira", "", Arrays.asList(), new String[]{}, "Sexo eh obrigatorio"},
