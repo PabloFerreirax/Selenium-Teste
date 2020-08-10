@@ -1,5 +1,6 @@
 package com.aula.selenium.teste;
 
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 public class CampoTreinamentoPage {
@@ -81,6 +82,11 @@ public class CampoTreinamentoPage {
         return dsl.obterTexto("descEsportes");
     }
 
+
+    @Test
+    public void deveClicarBotaoTabela(){
+
+    }
 
 
 }
