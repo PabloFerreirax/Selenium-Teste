@@ -84,7 +84,7 @@ public class CampoTreinamentoPage {
 
 
     @Test
-    public void deveClicarBotaoTabela(){
+    public void deveClicarBotao(){
 
     }
 
