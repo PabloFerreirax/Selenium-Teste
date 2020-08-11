@@ -1,5 +1,6 @@
 package com.aula.selenium.teste;
 
+import com.aprendendo.selenium.core.DSL;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,10 +14,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import static com.aprendendo.selenium.core.DriverFactory.getDriver;
+import static com.aprendendo.selenium.core.DriverFactory.killDriver;
+
 @RunWith(Parameterized.class)
 public class TesteRegrasCadastros {
 
-    private WebDriver driver;
     private DSL dsl;
     private CampoTreinamentoPage page;
 
@@ -39,18 +42,15 @@ public class TesteRegrasCadastros {
 
     @Before
     public void inicializa(){
-        System.setProperty("webdriver.chrome.driver",
-                "C:\\Users\\pablo\\OneDrive\\Documentos\\TrabalhoHomeOffice\\Drivers\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+        getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
         //driver.manage().window().setSize(new Dimension(1200, 765));
-        dsl = new DSL(driver);
-        page = new CampoTreinamentoPage(driver);
+        dsl = new DSL();
+        page = new CampoTreinamentoPage();
     }
 
     @After
     public void finaliza(){
-        driver.quit();
+        killDriver();
     }
     @Parameterized.Parameters // esta tag faz com que seja captador dos parametros acima
     // este metodo, faz todos os testes com base e regra no deveValidarCadastro() pois todos os parametros dados estão nesta classe

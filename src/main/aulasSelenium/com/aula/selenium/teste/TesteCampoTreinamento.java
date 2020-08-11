@@ -3,6 +3,8 @@ package com.aula.selenium.teste;
 import java.util.Arrays;
 import java.util.List;
 
+import com.aprendendo.selenium.core.DSL;
+import com.aprendendo.selenium.core.DriverFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,23 +16,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class TesteCampoTreinamento {
-	
-	private WebDriver driver;
+
 	private DSL dsl;
 
 	@Before
 	public void inicializa(){
-		System.setProperty("webdriver.chrome.driver", //diz o tipo
-				"C:\\Users\\pablo\\OneDrive\\Documentos\\TrabalhoHomeOffice\\Drivers\\chromedriver.exe"); //diz onde esta
-		driver = new ChromeDriver(); // instancia o tipo agora
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		dsl = new DSL(driver);
+		DriverFactory.getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		DriverFactory.getDriver().manage().window().setSize(new Dimension(1200, 765));
+		dsl = new DSL();
 	}
 	
 	@After
 	public void finaliza(){
-		driver.quit();
+		DriverFactory.killDriver();
 	}
 	
 	@Test

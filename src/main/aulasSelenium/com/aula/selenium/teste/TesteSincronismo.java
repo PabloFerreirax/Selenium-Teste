@@ -2,6 +2,7 @@ package com.aula.selenium.teste;
 
 import java.util.concurrent.TimeUnit;
 
+import com.aprendendo.selenium.core.DSL;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +25,7 @@ public class TesteSincronismo {
 		driver = new ChromeDriver(); // instancia o tipo agora
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		driver.manage().window().setSize(new Dimension(1200, 765));
-		dsl = new DSL(driver);
+		dsl = new DSL();
 	}
 	
 	@After

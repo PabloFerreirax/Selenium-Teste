@@ -1,31 +1,28 @@
 package com.aula.selenium.teste;
 
+import static com.aprendendo.selenium.core.DriverFactory.getDriver;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.aprendendo.selenium.core.DSL;
+import com.aprendendo.selenium.core.DriverFactory;
 
 public class TesteAlert {
 	
-	private WebDriver driver;
 	private DSL dsl;
 	
 	@Before
 	public void inicializa(){
-		System.setProperty("webdriver.chrome.driver", //diz o tipo
-				"C:\\Users\\pablo\\OneDrive\\Documentos\\TrabalhoHomeOffice\\Drivers\\chromedriver.exe"); //diz onde esta
-		driver = new ChromeDriver(); // instancia o tipo agora
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		dsl = new DSL(driver);
+		getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		dsl = new DSL();
 	}
 	
 	@After
 	public void finaliza(){
-		driver.quit();
+		DriverFactory.killDriver();
 	}
 
 	@Test
