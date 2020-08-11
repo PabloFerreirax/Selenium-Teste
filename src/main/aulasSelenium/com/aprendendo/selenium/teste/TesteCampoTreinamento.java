@@ -1,8 +1,9 @@
-package com.aula.selenium.teste;
+package com.aprendendo.selenium.teste;
 
 import java.util.Arrays;
 import java.util.List;
 
+import com.aprendendo.selenium.core.BaseTeste;
 import com.aprendendo.selenium.core.DSL;
 import com.aprendendo.selenium.core.DriverFactory;
 import org.junit.After;
@@ -15,7 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-public class TesteCampoTreinamento {
+public class TesteCampoTreinamento extends BaseTeste {
 
 	private DSL dsl;
 
@@ -25,12 +26,7 @@ public class TesteCampoTreinamento {
 		DriverFactory.getDriver().manage().window().setSize(new Dimension(1200, 765));
 		dsl = new DSL();
 	}
-	
-	@After
-	public void finaliza(){
-		DriverFactory.killDriver();
-	}
-	
+
 	@Test
 	public void testeTextField(){
 		dsl.escrever("elementosForm:nome", "Teste de escrita");

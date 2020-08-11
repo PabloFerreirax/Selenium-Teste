@@ -1,5 +1,6 @@
-package com.aula.selenium.teste;
+package com.aprendendo.selenium.teste;
 
+import com.aprendendo.selenium.core.BaseTeste;
 import com.aprendendo.selenium.core.DSL;
 import com.aprendendo.selenium.core.DriverFactory;
 import org.junit.After;
@@ -13,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TesteAjax {
+public class TesteAjax extends BaseTeste {
 	
 	private WebDriver driver;
 	private DSL dsl;
@@ -26,11 +27,6 @@ public class TesteAjax {
 		driver.manage().window().setSize(new Dimension(1200, 765));
 		driver.get("https://www.primefaces.org/showcase/ui/ajax/basic.xhtml");
 		dsl = new DSL();
-	}
-	
-	@After
-	public void finaliza(){
-		driver.quit();
 	}
 
 	/* Este teste ajax faz uso do primaryFaces que muda muita coisa e as complica para testes.

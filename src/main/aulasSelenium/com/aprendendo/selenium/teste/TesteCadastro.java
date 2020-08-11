@@ -1,5 +1,7 @@
-package com.aula.selenium.teste;
+package com.aprendendo.selenium.teste;
 
+import com.aprendendo.selenium.core.BaseTeste;
+import com.aprendendo.selenium.page.CampoTreinamentoPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,7 +10,7 @@ import org.junit.Test;
 import static com.aprendendo.selenium.core.DriverFactory.getDriver;
 import static com.aprendendo.selenium.core.DriverFactory.killDriver;
 
-public class TesteCadastro {
+public class TesteCadastro extends BaseTeste {
 	
 	private CampoTreinamentoPage page;
 
@@ -16,11 +18,6 @@ public class TesteCadastro {
 	public void inicializa(){
 		getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		page = new CampoTreinamentoPage();
-	}
-	
-	@After
-	public void finaliza(){
-		killDriver();
 	}
 
 	@Test

@@ -1,16 +1,13 @@
-package com.aula.selenium.teste;
+package com.aprendendo.selenium.page;
 
+import com.aprendendo.selenium.core.BasePage;
 import org.openqa.selenium.By;
 
 import com.aprendendo.selenium.core.DSL;
 
-public class CampoTreinamentoPage {
+public class CampoTreinamentoPage extends BasePage {
 	
-	private DSL dsl;
-	
-	public CampoTreinamentoPage() {
-		dsl = new DSL();
-	}
+
 
 	public void setNome(String nome) {
 		dsl.escrever("elementosForm:nome", nome);

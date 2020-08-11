@@ -1,5 +1,8 @@
-package com.aula.selenium.teste;
+package com.aprendendo.selenium.suites;
 
+import com.aprendendo.selenium.teste.TesteCadastro;
+import com.aprendendo.selenium.teste.TesteCampoTreinamento;
+import com.aprendendo.selenium.teste.TesteRegrasCadastros;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 

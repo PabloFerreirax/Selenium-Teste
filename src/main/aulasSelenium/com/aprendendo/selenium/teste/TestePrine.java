@@ -1,7 +1,8 @@
-package com.aula.selenium.teste;
+package com.aprendendo.selenium.teste;
 
 import static com.aprendendo.selenium.core.DriverFactory.getDriver;
 
+import com.aprendendo.selenium.core.BaseTeste;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,18 +12,13 @@ import org.openqa.selenium.By;
 import com.aprendendo.selenium.core.DSL;
 import com.aprendendo.selenium.core.DriverFactory;
 
-public class TestePrine {
+public class TestePrine extends BaseTeste {
 	
 	private DSL dsl;
 
 	@Before
 	public void inicializa(){
 		dsl = new DSL();
-	}
-	
-	@After
-	public void finaliza(){
-		DriverFactory.getDriver();
 	}
 
 	@Test

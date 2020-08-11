@@ -1,7 +1,8 @@
-package com.aula.selenium.teste;
+package com.aprendendo.selenium.teste;
 
 import java.util.concurrent.TimeUnit;
 
+import com.aprendendo.selenium.core.BaseTeste;
 import com.aprendendo.selenium.core.DSL;
 import org.junit.After;
 import org.junit.Before;
@@ -13,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TesteSincronismo {
+public class TesteSincronismo extends BaseTeste {
 
 	private WebDriver driver;
 	private DSL dsl;
@@ -26,11 +27,6 @@ public class TesteSincronismo {
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		driver.manage().window().setSize(new Dimension(1200, 765));
 		dsl = new DSL();
-	}
-	
-	@After
-	public void finaliza(){
-		driver.quit();
 	}
 	
 	@Test

@@ -1,14 +1,14 @@
-package com.aula.selenium.teste;
+package com.aprendendo.selenium.teste;
 
+import com.aprendendo.selenium.core.BaseTeste;
 import com.aprendendo.selenium.core.DSL;
+import com.aprendendo.selenium.page.CampoTreinamentoPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -18,7 +18,7 @@ import static com.aprendendo.selenium.core.DriverFactory.getDriver;
 import static com.aprendendo.selenium.core.DriverFactory.killDriver;
 
 @RunWith(Parameterized.class)
-public class TesteRegrasCadastros {
+public class TesteRegrasCadastros extends BaseTeste {
 
     private DSL dsl;
     private CampoTreinamentoPage page;
@@ -48,10 +48,7 @@ public class TesteRegrasCadastros {
         page = new CampoTreinamentoPage();
     }
 
-    @After
-    public void finaliza(){
-        killDriver();
-    }
+
     @Parameterized.Parameters // esta tag faz com que seja captador dos parametros acima
     // este metodo, faz todos os testes com base e regra no deveValidarCadastro() pois todos os parametros dados estão nesta classe
     public static Collection<Object[]> getCollection(){
